@@ -4,7 +4,13 @@ import android.app.Application;
 import android.content.Context;
 
 import com.acrs.buddies.App;
+import com.acrs.buddies.data.AppDataManager;
+import com.acrs.buddies.data.DataManager;
+import com.acrs.buddies.data.SharedHelper;
+import com.acrs.buddies.data.SharedPresenter;
 import com.acrs.buddies.di.ApplicationContext;
+
+import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
@@ -30,7 +36,7 @@ public class ApplicationModule {
 
         return mAp;
     }
-    /*@Provides
+    @Provides
     @Singleton
     DataManager provideDataManager(AppDataManager appDataManager) {
 
@@ -41,6 +47,6 @@ public class ApplicationModule {
     SharedPresenter sharedPresenter(SharedHelper sharedPreferences) {
 
         return sharedPreferences;
-    }*/
+    }
 }
 
