@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Acrs_buddies</string>
+    <string name="notconnect">connection failed</string>
 </resources>

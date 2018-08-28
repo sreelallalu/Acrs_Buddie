@@ -13,5 +13,8 @@ public interface SharedPresenter {
     void setNotificationCancel(int id, boolean cancel);
     boolean getNotificationCancel(int id);
 
+    void setFirebaseID(String firebaseID);
+    String getFirebaseID();
+
 }
 

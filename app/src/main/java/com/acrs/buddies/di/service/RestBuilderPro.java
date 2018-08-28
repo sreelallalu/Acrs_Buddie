@@ -7,9 +7,8 @@ package com.acrs.buddies.di.service;
 
 public class RestBuilderPro {
     private static ApiInterface service;
-    public static ApiInterface getService()
-    {
-        service=ServiceGeneratorpro.createService(ApiInterface.class);
-        return service;
+    public static <S> S getService(Class<S> classes) {
+
+        return ServiceGeneratorpro.createService(classes);
     }
 }

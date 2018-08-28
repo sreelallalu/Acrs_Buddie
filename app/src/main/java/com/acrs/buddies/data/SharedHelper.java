@@ -15,10 +15,8 @@ import javax.inject.Singleton;
 public class SharedHelper implements SharedPresenter {
     private SharedPreferences mSharedPreferences;
 
-  public static String MAIN_DATA="main_data";
     String USER_ID="user_id";
     String USER_DATA="user_data";
-   public static String USER_NOTIFY="user_notifify";
 
 
     @Inject
@@ -58,5 +56,16 @@ public class SharedHelper implements SharedPresenter {
     @Override
     public boolean getNotificationCancel(int id) {
         return  mSharedPreferences.getBoolean("user_notifify"+id,false);
+    }
+
+    @Override
+    public void setFirebaseID(String firebaseID) {
+        mSharedPreferences.edit().putString("firebase_id",firebaseID).commit();
+
+    }
+
+    @Override
+    public String getFirebaseID() {
+        return mSharedPreferences.getString("firebase_id",null);
     }
 }

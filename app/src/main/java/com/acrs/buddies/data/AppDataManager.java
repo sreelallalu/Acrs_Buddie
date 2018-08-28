@@ -24,7 +24,15 @@ public class AppDataManager implements DataManager {
         mPreferencesHelper = preferencesHelper;
 
     }
+    @Override
+    public void setFirebaseID(String firebaseID) {
+        mPreferencesHelper.setFirebaseID(firebaseID);
+    }
 
+    @Override
+    public String getFirebaseID() {
+        return mPreferencesHelper.getFirebaseID();
+    }
 
     @Override
     public void setUserId(String centerid) {

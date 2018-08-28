@@ -16,6 +16,7 @@ import com.acrs.buddies.data.DataManager;
 import com.acrs.buddies.di.component.ActivityComponent;
 import com.acrs.buddies.di.component.DaggerActivityComponent;
 import com.acrs.buddies.di.module.ActivityModule;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import javax.inject.Inject;
 
@@ -41,6 +42,17 @@ public class BaseActivity extends AppCompatActivity implements MvpView {
         activityComponent.inject(this);
         dialog = new ProgressDialog(this);
         dialog.setMessage("loading...");
+
+        if (dataManager.getFirebaseID() != null) {
+            String firebaseID = FirebaseInstanceId.getInstance().getId();
+
+            if (firebaseID != null) {
+
+                dataManager.setUserDetails(firebaseID);
+
+            }
+
+        }
 
     }
 
