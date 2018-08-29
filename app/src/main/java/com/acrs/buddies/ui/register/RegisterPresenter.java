@@ -12,6 +12,8 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
+import javax.inject.Inject;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -19,12 +21,15 @@ import retrofit2.Response;
 
 public class  RegisterPresenter<T extends RegisterView> extends BasePresenter<T> implements Register_i_Presenter<T> {
 
+    @Inject
     public RegisterPresenter(DataManager dataManager) {
         super(dataManager);
     }
 
     @Override
     public void register(HashMap<String, String> hashMap) {
+
+        Log.e("params",hashMap.toString());
         RestBuilderPro.getService(RegisterWebApi.class).register(hashMap).enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -50,6 +55,7 @@ public class  RegisterPresenter<T extends RegisterView> extends BasePresenter<T>
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e("error",t.getMessage());
                 getView().SnakBarId(R.string.notconnect);
                 getView().onFailerApi();
             }

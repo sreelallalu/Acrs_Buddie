@@ -63,7 +63,7 @@ public class RegisterActivity extends BaseActivity implements RegisterView, View
 
         boolean check = true;
 
-        if (name != null && name.length() < 33) {
+        if (name != null && name.length() < 3) {
             check = false;
             binding.name.setError("Invalid name");
         }
@@ -92,7 +92,7 @@ public class RegisterActivity extends BaseActivity implements RegisterView, View
             hashMap.put(RegisterWebApi.RegisterParms.GENDER, gender);
             hashMap.put(RegisterWebApi.RegisterParms.MOBILE, mobile);
             hashMap.put(RegisterWebApi.RegisterParms.AGE, age);
-            hashMap.put(RegisterWebApi.RegisterParms.FIREBASE, dataManager.getFirebaseID());
+            hashMap.put(RegisterWebApi.RegisterParms.FIREBASE, dataManager.getFirebaseID()==null?"":dataManager.getFirebaseID());
             hashMap.put(RegisterWebApi.RegisterParms.EMAIL, email);
             hashMap.put(RegisterWebApi.RegisterParms.PASSWORD, password);
 
@@ -119,6 +119,8 @@ public class RegisterActivity extends BaseActivity implements RegisterView, View
     @Override
     public void onClick(View v) {
         if (v.getId() == binding.register.getId()) {
+
+            register();
         }
 
     }

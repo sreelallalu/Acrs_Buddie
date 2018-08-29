@@ -10,12 +10,13 @@ import com.acrs.buddies.ui.login.LoginActvity;
 
 public class Splash extends BaseActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent intent = null;
+          Intent intent = null;
         if (dataManager.getUserId() != null) {
             intent = new Intent(this, DashBoardActvity.class);
 

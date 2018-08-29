@@ -7,6 +7,7 @@ import android.support.design.widget.BaseTransientBottomBar;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -43,12 +44,11 @@ public class BaseActivity extends AppCompatActivity implements MvpView {
         dialog = new ProgressDialog(this);
         dialog.setMessage("loading...");
 
-        if (dataManager.getFirebaseID() != null) {
-            String firebaseID = FirebaseInstanceId.getInstance().getId();
-
+        if (dataManager.getFirebaseID() == null) {
+            String firebaseID = FirebaseInstanceId.getInstance().getToken();
             if (firebaseID != null) {
-
-                dataManager.setUserDetails(firebaseID);
+                Log.e("firebase_token",firebaseID);
+                dataManager.setFirebaseID(firebaseID);
 
             }
 
