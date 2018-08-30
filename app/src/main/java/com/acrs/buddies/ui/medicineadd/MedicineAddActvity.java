@@ -27,8 +27,6 @@ public class MedicineAddActvity extends BaseActivity implements MedicineAddView 
     MedicineAdd_i_Presenter<MedicineAddView> presenter;
 
     ActivityMedicineAddBinding binding;
-    final int Date_id = 0;
-    final int Time_id = 1;
     private String datecurrent;
     private String timecurrent;
     private String patientId;

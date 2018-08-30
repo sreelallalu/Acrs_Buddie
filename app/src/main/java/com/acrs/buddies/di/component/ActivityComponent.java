@@ -7,6 +7,7 @@ import com.acrs.buddies.ui.base.BaseActivity;
 import com.acrs.buddies.ui.login.LoginActvity;
 import com.acrs.buddies.ui.medicineadd.MedicineAddActvity;
 import com.acrs.buddies.ui.register.RegisterActivity;
+import com.acrs.buddies.ui.useradd.UserAddActivity;
 
 import dagger.Component;
 
@@ -21,6 +22,7 @@ public interface ActivityComponent {
    void inject(RegisterActivity activity);
    void inject(LoginActvity activity);
    void inject(MedicineAddActvity activity);
+   void inject(UserAddActivity activity);
    /* void inject(BaseActivity activity);
     void inject(MainActvity activity);
 
