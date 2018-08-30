@@ -12,12 +12,15 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
+import javax.inject.Inject;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginPresenter<T extends LoginView> extends BasePresenter<T> implements Login_i_Presenter<T>{
+    @Inject
     public LoginPresenter(DataManager dataManager) {
         super(dataManager);
     }
@@ -66,7 +69,8 @@ public class LoginPresenter<T extends LoginView> extends BasePresenter<T> implem
             if (succ == 1) {
 
                 JSONObject userdata = jsonObject.getJSONObject("data");
-                String id = userdata.getString("id");
+
+                String id = userdata.has("buddyid")?userdata.getString("buddyid"):"12";
                 getDataManager().setUserId(id);
                 getDataManager().setUserDetails(userdata.toString());
                 getView().onSuccessApi();

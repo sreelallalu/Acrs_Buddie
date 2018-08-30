@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,7 +20,22 @@
         <activity android:name=".ui.dashboard.DashBoardActvity" />
         <activity android:name=".ui.login.LoginActvity" />
         <activity android:name=".ui.register.RegisterActivity" />
-        <activity android:name=".ui.medicineadd.MedicineAddActvity"></activity>
+        <activity android:name=".ui.medicineadd.MedicineAddActvity" />
+        <activity android:name=".ui.useradd.UserAddActivity" />
+        <activity android:name=".ui.viewuser.ViewUserActivity"></activity>
+
+
+        <service android:name=".di.service.FirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".di.service.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>

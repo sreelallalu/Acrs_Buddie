@@ -7,9 +7,15 @@ import com.acrs.buddies.di.ActivityContext;
 import com.acrs.buddies.ui.login.LoginPresenter;
 import com.acrs.buddies.ui.login.LoginView;
 import com.acrs.buddies.ui.login.Login_i_Presenter;
+import com.acrs.buddies.ui.medicineadd.MedicineAddPresenter;
+import com.acrs.buddies.ui.medicineadd.MedicineAddView;
+import com.acrs.buddies.ui.medicineadd.MedicineAdd_i_Presenter;
 import com.acrs.buddies.ui.register.RegisterPresenter;
 import com.acrs.buddies.ui.register.RegisterView;
 import com.acrs.buddies.ui.register.Register_i_Presenter;
+import com.acrs.buddies.ui.useradd.UserAddPresenter;
+import com.acrs.buddies.ui.useradd.UserAddView;
+import com.acrs.buddies.ui.useradd.UserAdd_i_Presenter;
 
 import dagger.Module;
 import dagger.Provides;
@@ -26,8 +32,6 @@ public class ActivityModule {
 
         this.activity = activity;
     }
-
-
 
 
     @Provides
@@ -51,7 +55,17 @@ public class ActivityModule {
 
 
     @Provides
-    Login_i_Presenter<LoginView> register_i_presenter(LoginPresenter<LoginView> presenter) {
+    Login_i_Presenter<LoginView> login_i_presenter(LoginPresenter<LoginView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    MedicineAdd_i_Presenter<MedicineAddView> medicine_presenter(MedicineAddPresenter<MedicineAddView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    UserAdd_i_Presenter<UserAddView> useradd_preseter(UserAddPresenter<UserAddView> presenter) {
         return presenter;
     }
 }

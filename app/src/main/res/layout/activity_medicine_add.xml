@@ -1,74 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:background="@drawable/tt2"
-    android:layout_height="match_parent">
+<layout>
 
-
-    <LinearLayout
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
 
-        <TextView
-            android:id="@+id/medicineaddtxt"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:textColor="#461a1a"
-            android:textStyle="italic"
-            android:textSize="15dp"
-            android:layout_height="wrap_content"
-            android:text="Add Medicine" />
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
 
-        <Spinner
-            android:id="@+id/user_select"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <android.support.design.widget.TextInputEditText
+            <TextView
+                android:id="@+id/medicineaddtxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="hint" />
+                android:text="Add Medicine" />
 
-        </android.support.design.widget.TextInputLayout>
+            <Spinner
+                android:id="@+id/user_select"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <android.support.design.widget.TextInputEditText
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/medicinename"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Medicine Name" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="hint" />
-        </android.support.design.widget.TextInputLayout>
+                android:orientation="horizontal">
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="3dp"
+                    android:layout_weight="1">
 
-            <android.support.design.widget.TextInputEditText
+                    <android.support.design.widget.TextInputEditText
+                        android:clickable="true"
+                        android:focusable="false"
+                        android:id="@+id/medicinedate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:hint="Medicine Date" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+
+
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginLeft="3dp"
+                    android:layout_weight="1">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/medicinetime"
+                        android:clickable="true"
+                        android:focusable="false"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:hint="Medicine Time" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="hint" />
+                android:layout_height="wrap_content">
 
-        </android.support.design.widget.TextInputLayout>
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/medicinenotes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Medicine Note" />
 
-
-        <Button
-            android:textColor="@color/white"
-            android:background="@color/colorPrimary"
-            android:text="Submit"
-            android:id="@+id/submit"
-            android:layout_width="match_parent"
-            android:layout_height="40dp" />
-    </LinearLayout>
+            </android.support.design.widget.TextInputLayout>
 
 
-</RelativeLayout>
+            <Button
+                android:id="@+id/submit"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/colorPrimary"
+                android:text="Submit"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</layout>

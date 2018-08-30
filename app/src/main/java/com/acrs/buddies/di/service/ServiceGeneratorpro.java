@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ServiceGeneratorpro {
 
-    private final static String BASEURL = "https://rescue.nyesteventuretech.com/";
+    private final static String BASEURL = "http://rescue.nyesteventuretech.com/";
 
     public static <S> S createService(Class<S> service) {
         Gson gson = new GsonBuilder()

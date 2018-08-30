@@ -1,4 +1,4 @@
-package com.acrs.buddies.ui.register;
+package com.acrs.buddies.ui.useradd;
 
 import android.util.Log;
 
@@ -6,6 +6,7 @@ import com.acrs.buddies.R;
 import com.acrs.buddies.data.DataManager;
 import com.acrs.buddies.di.service.RestBuilderPro;
 import com.acrs.buddies.ui.base.BasePresenter;
+import com.acrs.buddies.ui.medicineadd.MedicineAddWebApi;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -19,18 +20,16 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class  RegisterPresenter<T extends RegisterView> extends BasePresenter<T> implements Register_i_Presenter<T> {
+public class UserAddPresenter<T extends UserAddView> extends BasePresenter<T> implements UserAdd_i_Presenter<T> {
 
     @Inject
-    public RegisterPresenter(DataManager dataManager) {
+    public UserAddPresenter(DataManager dataManager) {
         super(dataManager);
     }
 
     @Override
-    public void register(HashMap<String, String> hashMap) {
-
-        Log.e("params",hashMap.toString());
-        RestBuilderPro.getService(RegisterWebApi.class).register(hashMap).enqueue(new Callback<ResponseBody>() {
+    public void requestUser(HashMap<String, String> hashMap) {
+        RestBuilderPro.getService(MedicineAddWebApi.class).viewcitizen(hashMap).enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if (response.isSuccessful()) {
@@ -41,13 +40,13 @@ public class  RegisterPresenter<T extends RegisterView> extends BasePresenter<T>
                         e.printStackTrace();
 
                         getView().SnakBarString("Response error");
-                        getView().onFailerApi();
+                        getView().addUserFailed();
 
                     }
 
                 } else {
                     getView().SnakBarString("Something went wrong");
-                    getView().onFailerApi();
+                    getView().addUserFailed();
 
                 }
 
@@ -55,30 +54,33 @@ public class  RegisterPresenter<T extends RegisterView> extends BasePresenter<T>
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Log.e("error",t.getMessage());
+                Log.e("error", t.getMessage());
                 getView().SnakBarId(R.string.notconnect);
-                getView().onFailerApi();
+                getView().addUserFailed();
+
             }
         });
     }
 
     private void successResponse(String res) throws JSONException {
-        Log.e("response_regi", res);
+
         JSONObject jsonObject = new JSONObject(res);
         int succ = jsonObject.getInt("success");
         if (succ == 1) {
 
-            JSONObject userdata = jsonObject.getJSONObject("data");
-            String patientId = userdata.getString("id");
-            getDataManager().setUserId(patientId);
-            getDataManager().setUserDetails(userdata.toString());
-            getView().onSuccessApi();
+            if(jsonObject.get("data") instanceof  JSONObject)
+            {
+
+                getView().addUserSucess();
+            }else{
+                getView().SnakBarString("Request Already Send");
+                getView().addUserFailed();
+            }
 
 
-        } else {
-            getView().onFailerApi();
+        }else{
+            getView().SnakBarString("Request Faild !");
+            getView().addUserFailed();
         }
-
-
     }
 }
