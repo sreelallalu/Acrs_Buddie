@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/tt4"
     tools:context=".ui.viewuser.ViewUserActivity">
 
 </android.support.constraint.ConstraintLayout>
