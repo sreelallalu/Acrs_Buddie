@@ -7,6 +7,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/tt4"
     tools:context=".ui.dashboard.DashBoardActvity">
 
     <LinearLayout
@@ -16,12 +17,19 @@
 
 
         <Button
+            android:layout_marginTop="15pt"
             android:id="@+id/addmedicine"
+            android:textSize="18dp"
+            android:background="#f6f7f4f4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Add Medicine" />
 
         <Button
+            android:layout_marginTop="15dp"
+            android:background="#f6f7f4f4"
+            android:textSize="18dp"
+            android:textColor="#000"
             android:id="@+id/adduser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,6 +37,9 @@
 
         <Button
             android:id="@+id/viewuser"
+            android:background="#f6f7f4f4"
+            android:textSize="18dp"
+            android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="View User" />
