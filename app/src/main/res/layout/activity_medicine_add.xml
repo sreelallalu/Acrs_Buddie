@@ -102,6 +102,7 @@
             <Button
                 android:id="@+id/submit"
                 android:textSize="9pt"
+                android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/colorPrimary"
